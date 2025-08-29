@@ -7,5 +7,5 @@ from django.http import JsonResponse
 def property_list(request):
 	properties = Property.objects.all()
 	if request.headers.get('Accept') == 'application/json':
-		return JsonResponse({'properties': list(properties.values())})
+		return JsonResponse({'data': list(properties.values())})
 	return render(request, 'properties/property_list.html', {'properties': properties})
